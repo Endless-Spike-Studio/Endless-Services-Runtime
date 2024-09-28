@@ -7,6 +7,8 @@ ENV SERVER_NAME=:80
 
 RUN docker-php-ext-install opcache pcntl
 
+RUN apk add --no-cache pcre-dev zlib-dev libmemcached-dev $PHPIZE_DEPS
+
 RUN pecl install redis memcached
 RUN docker-php-ext-enable redis memcached
 
